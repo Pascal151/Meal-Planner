@@ -1,0 +1,9 @@
+from inputs.fetch_user_pecific_needs import fetch_user_specific_needs
+from inputs.fetch_meals import fetch_available_meals
+from processing.meal_planner import get_meal_plan_data_list
+from output.meal_plan_presenter import present_meal_plan
+
+available_meals = fetch_available_meals()
+user_spefifications = fetch_user_specific_needs()
+meal_plan_data = get_meal_plan_data_list(available_meals, user_spefifications)
+print(present_meal_plan(meal_plan_data))
