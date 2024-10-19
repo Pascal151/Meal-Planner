@@ -1,6 +1,6 @@
 available_meals = {
-    "Tomato soup and cheese bread": [(500, "g", "tomatoes"), (2, "", "onions"), (3, "", "garlic kloves"), (30, "ml", "olive oil"), (4, "slices", "bread"), (4, "sclices", "gouda cheese")], #TODO: optional ingridients
-    "Aglio olio": [(3, "", "garlic kloves"), (30, "ml", "olive oil"), (350, "g", "pasta"), (None, "", "parsley")],
+    "Tomato soup and cheese bread": [(500, "g", "tomatoes"), (2, "", "onions"), (3, "", "garlic cloves"), (30, "ml", "olive oil"), (4, "slices", "bread"), (4, "sclices", "gouda cheese")], #TODO: optional ingridients
+    "Aglio olio": [(3, "", "garlic cloves"), (30, "ml", "olive oil"), (350, "g", "pasta"), (None, "", "parsley")],
     "Chicken Caesar Salad": [(200, "g", "chicken breast"), (100, "g", "romaine lettuce"), (50, "g", "croutons"), (50, "g", "parmesan cheese"), (30, "ml", "Caesar dressing"), (2, "", "boiled eggs"), (20, "ml", "olive oil")],
     "Spaghetti Bolognese": [(400, "g", "ground beef"), (500, "g", "spaghetti"), (1, "can", "tomato sauce"), (1, "", "onion"), (2, "", "garlic cloves"), (30, "ml", "olive oil"), (None, "", "fresh basil")],
     "Vegetable Stir Fry": [(200, "g", "broccoli"), (1, "", "carrot"), (1, "", "bell pepper"), (100, "g", "snap peas"), (2, "", "garlic cloves"), (30, "ml", "soy sauce"), (10, "ml", "sesame oil"), (None, "", "green onions")],
