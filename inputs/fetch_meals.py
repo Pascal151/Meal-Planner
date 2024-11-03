@@ -1,3 +1,7 @@
+import nltk
+
+english_stemming = nltk.stem.SnowballStemmer('english')
+
 available_meals = {
     "Tomato soup and cheese bread": [(500, "g", "tomatoes"), (2, "", "onions"), (3, "", "garlic cloves"), (30, "ml", "olive oil"), (4, "slices", "bread"), (4, "sclices", "gouda cheese")], #TODO: optional ingridients
     "Aglio olio": [(3, "", "garlic cloves"), (30, "ml", "olive oil"), (350, "g", "pasta"), (None, "", "parsley")],
@@ -19,6 +23,22 @@ available_meals = {
     "Mediterranean Grilled Vegetables": [(1, "", "zucchini"), (1, "", "eggplant"), (1, "", "bell pepper"), (1, "", "red onion"), (30, "ml", "olive oil"), (10, "ml", "balsamic vinegar"), (None, "", "thyme"), (None, "", "oregano")],
     "Seafood Paella": [(200, "g", "shrimp"), (200, "g", "mussels"), (300, "g", "paella rice"), (1, "", "onion"), (3, "", "garlic cloves"), (1, "l", "fish stock"), (100, "g", "peas"), (1, "", "bell pepper"), (30, "ml", "olive oil"), (None, "", "saffron")]
 }
+
+# Lemmatizing the dictionary
+from nltk.corpus import wordnet
+from nltk.stem import WordNetLemmatizer
+nltk.download('wordnet')
+
+lemmatizer = WordNetLemmatizer()
+
+def lemmatize_ingredient(word):
+    return lemmatizer.lemmatize(word, pos=wordnet.NOUN)
+
+for key, array in available_meals.items():
+    for i, (a, b, c) in enumerate(array):
+        if b != "":
+            stemmed_c = lemmatize_ingredient(c)
+            array[i] = (a, b, stemmed_c)
 
 def fetch_available_meals():
     return available_meals
