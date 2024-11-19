@@ -38,18 +38,25 @@ try:
     CREATE TABLE IF NOT EXISTS Meals (
         meal_id SERIAL PRIMARY KEY,
         meal_name TEXT,
-        ingredients TEXT[]
+        quantity INTEGER,
+        unit TEXT,
+        ingredient TEXT
     );
     """
     cursor.execute(create_table_query)
     conn.commit()
 
     # Insert data into the table
-    insert_query = "INSERT INTO Meals (meal_name, ingredients) VALUES (%s, %s)"
+    insert_query = """
+    INSERT INTO Meals (meal_name, quantity, unit, ingredient) 
+    VALUES (%s, %s, %s, %s)
+    """
+
+    # Insert each ingredient into the Meal_Ingredients table
     for meal_name, ingredients_list in meals.items():
-        # Convert ingredients to a text array
-        ingredients = [f"{qty or 'None'} {unit} {item}" for qty, unit, item in ingredients_list]
-        cursor.execute(insert_query, (meal_name, ingredients))
+        for ingredient in ingredients_list:
+            quantity, unit, ingredient_name = ingredient
+            cursor.execute(insert_query, (meal_name, quantity, unit, ingredient_name))
 
     # Commit all insertions at once
     conn.commit()
