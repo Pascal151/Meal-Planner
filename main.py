@@ -1,5 +1,5 @@
 from inputs.fetch_user_pecific_needs import fetch_user_specific_needs
-from inputs.fetch_meals import fetch_available_meals
+from inputs.read_from_database import fetch_available_meals
 from processing.meal_planner import get_meal_plan_data_list
 from output.meal_plan_presenter import present_meal_plan
 
