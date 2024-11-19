@@ -12,6 +12,7 @@ requests = "^2.25.1"
 numpy = "^1.21"
 pandas = "^1.5.0"
 nltk = "^3.9.1"
+psycopg2-binary = "^2.9.10"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"  
