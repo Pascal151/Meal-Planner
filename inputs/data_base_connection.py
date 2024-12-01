@@ -1,4 +1,6 @@
 import psycopg2
+import os
+from dotenv import load_dotenv
 
 meals = {
     "Tomato soup and cheese bread": [(500, "g", "tomatoes"), (2, "", "onions"), (3, "", "garlic cloves"), (30, "ml", "olive oil"), (4, "slices", "bread"), (4, "sclices", "gouda cheese")], #TODO: optional ingridients
@@ -22,12 +24,15 @@ meals = {
     "Seafood Paella": [(200, "g", "shrimp"), (200, "g", "mussels"), (300, "g", "paella rice"), (1, "", "onion"), (3, "", "garlic cloves"), (1, "l", "fish stock"), (100, "g", "peas"), (1, "", "bell pepper"), (30, "ml", "olive oil"), (None, "", "saffron")]
 }
 
+load_dotenv()
+password = os.getenv("DB_PASSWORD")
+
 try:
     # Connect to PostgreSQL
     conn = psycopg2.connect(
         dbname="Mealplanner",
         user="postgres",
-        password="357654",
+        password=password,
         host="localhost",
         port="7531"
     )

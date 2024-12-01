@@ -1,14 +1,19 @@
 import psycopg2
+from dotenv import load_dotenv
+import os
 import nltk
 from nltk.corpus import wordnet
 from nltk.stem import WordNetLemmatizer
 nltk.download('wordnet')
 
+load_dotenv()
+password = os.getenv("DB_PASSWORD")
+
 # Connect to the PostgreSQL database
 conn = psycopg2.connect(
     dbname="Mealplanner",
     user="postgres",
-    password="357654",
+    password=password,
     host="localhost",
     port="7531"
 )
