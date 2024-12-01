@@ -27,6 +27,16 @@ poetry run python main.py
 ```
 into your terminal.
 
+### Running the Meal Planner App via Docker
+First you need to create a docker image:
+```
+docker build -t meal_planner_image .
+```
+When this was sucessful , make sure to run the docker image in interactive mode like this:
+```
+docker run -it meal_planner_image
+```
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
