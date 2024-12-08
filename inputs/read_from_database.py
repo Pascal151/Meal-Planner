@@ -14,8 +14,10 @@ conn = psycopg2.connect(
     dbname="Mealplanner",
     user="postgres",
     password=password,
-    host="localhost",
-    port="7531"
+    # run with 'localhost' if app is run via command line 
+    # run with 'DB_HOST = host.docker.internal when run with docker image
+    host = os.getenv("DB_HOST", "localhost"), 
+    port=7531
 )
 cursor = conn.cursor()
 
