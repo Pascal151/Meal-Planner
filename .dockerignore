@@ -1,0 +1,5 @@
+# Exclude all .ipynb files
+*.ipynb
+
+# Exclude all README files
+README*
